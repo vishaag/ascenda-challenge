@@ -122,6 +122,26 @@
   height: 1em;
 }
 
+.list {
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.list li {
+  list-style-type: none;
+  margin-right: 0.5rem;
+  margin-top: 1rem;
+}
+
+.list li a{
+  cursor: pointer;
+}
+
+.bold {
+  font-weight: bold;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
