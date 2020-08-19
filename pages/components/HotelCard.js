@@ -1,9 +1,11 @@
 import styles from './HotelCard.module.css'
 import formatCurrency from '../utils/formatCurrency'
+import ReactTooltip from 'react-tooltip';
 
-export default function HotelCard({photo, title, stars, rating, price, currency, list}) {
+export default function HotelCard({photo, title, stars, rating, price, currency, list, toolTipData}) {
   let savings;
   let priceOfHighestCompetitor;
+  let toolTipText;
   /* 
     list looks like this : 
     {Prestigia: 122.49, Kayak: 139.5}
@@ -33,7 +35,7 @@ export default function HotelCard({photo, title, stars, rating, price, currency,
     console.log(price, priceOfHighestCompetitor, savings)
   }
 
-  price = price ? formatCurrency(price, currency) : null
+  // price = price ? formatCurrency(price, currency) : null
 
   return (
     <a href="" className={styles.card}>
@@ -57,11 +59,21 @@ export default function HotelCard({photo, title, stars, rating, price, currency,
       {price ? 
         <>
           {savings ?  <h3 style={{textDecoration: 'line-through'}}>{formatCurrency(priceOfHighestCompetitor, currency)}</h3> : ''}
-          <h3>{price}</h3> 
+          {toolTipData ? <h3 data-tip data-for={title}>{formatCurrency(price, currency)}*</h3> : <h3>{formatCurrency(price, currency)}</h3> }
           {savings ? <h3>Save {savings}%</h3> : ''}
+          {toolTipData ? <ReactTooltip id={title}>
+            <h1>Breakdown</h1>
+            <ul>
+              <li>Price: {formatCurrency(Math.round(price - toolTipData.hotel_fees - toolTipData.tax), currency)}</li>
+              <li>Hotel Fee: {formatCurrency(toolTipData.hotel_fees, currency)}</li>
+              <li>Tax: {formatCurrency(toolTipData.tax, currency)}</li>
+            </ul> 
+          </ReactTooltip> : ''}
         </> : 
         <h3>Rates Unavailable</h3> }
+
       </div>
+
     </a>
   )
 }
