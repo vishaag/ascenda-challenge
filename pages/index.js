@@ -22,7 +22,7 @@ export default function Home() {
     }
     
     const hotelsURL = 'https://5df9cc6ce9f79e0014b6b3dc.mockapi.io/hotels/tokyo';
-    const pricesURL = `http://5df9cc6ce9f79e0014b6b3dc.mockapi.io/hotels/tokyo/1/${selectedCurrency}`;
+    const pricesURL = `https://5df9cc6ce9f79e0014b6b3dc.mockapi.io/hotels/tokyo/1/${selectedCurrency}`;
 
     Promise.all([
       fetch(hotelsURL),
