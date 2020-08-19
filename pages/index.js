@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import Card from './components/Card'
+import HotelCard from './components/HotelCard'
 
 export default function Home() {
   const [hotels, setHotels] = useState([]);
@@ -77,7 +77,7 @@ export default function Home() {
           {
             hotels.map((hotel,index) => {
               return (
-                <Card key={index} photo={hotel.photo} title={hotel.name} rating={hotel.rating} stars={hotel.stars} price={hotel.price} currency={currency} list={hotel.competitors}/>
+                <HotelCard key={index} photo={hotel.photo} title={hotel.name} rating={hotel.rating} stars={hotel.stars} price={hotel.price} currency={currency} list={hotel.competitors}/>
               )
             })
           }
