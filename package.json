@@ -5,12 +5,28 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "jest"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+    }
   },
   "dependencies": {
     "next": "9.5.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-tooltip": "^4.2.8"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "@testing-library/dom": "^7.22.2",
+    "@testing-library/jest-dom": "^5.11.3",
+    "@testing-library/react": "^10.4.8",
+    "babel-jest": "^26.3.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.4.1"
   }
 }

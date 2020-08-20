@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import HotelCard from './components/HotelCard'
+import mergeHotelsAndPrices from './utils/mergeHotelsAndPrices'
 
 export default function Home() {
   const [hotels, setHotels] = useState([]);
@@ -30,18 +31,20 @@ export default function Home() {
     ])
     .then(([hotels, prices]) => Promise.all([hotels.json(), prices.json()]))
     .then(([hotels, prices]) => {
-      const objectsWithoutPrice = [];
-      let mergedResult = []
-      hotels.map((hotel)=>{
-        const pricesObj = prices.find(price => price.id === hotel.id);
-        if(!pricesObj) {
-          objectsWithoutPrice.push(hotel)
-        } else {
-          mergedResult.push({ ...hotel, ...pricesObj })
-        }
-      })
-      mergedResult = mergedResult.concat(objectsWithoutPrice)
+      const mergedResult = mergeHotelsAndPrices(hotels, prices)
       setHotels(mergedResult)
+      // const hotel = [{
+      //   "id":1,
+      //   "name":"Shinagawa Prince Hotel",
+      //   "rating":7.7,
+      //   "stars":4,
+      //   "address":"108-8611 Tokyo Prefecture, Minato-ku, Takanawa 4-10-30, Japan",
+      //   "photo":"https://d2ey9sqrvkqdfs.cloudfront.net/ZqSQ/i1_t.jpg",
+      //   "competitors":{"Booking.com":125,"Hotels.com":121,"Expedia":120,"getaroom":140,"AMOMA.com":132.77},
+      //   "price": 125
+      // }
+      // ]
+      // setHotels(hotel)
       console.log(mergedResult)
     })
   },[currency])
