@@ -77,11 +77,13 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.grid}>
           {
+            hotels.length ? 
             hotels.map((hotel,index) => {
               return (
                 <HotelCard key={index} photo={hotel.photo} title={hotel.name} rating={hotel.rating} stars={hotel.stars} price={hotel.price} currency={currency} list={hotel.competitors} toolTipData={hotel.taxes_and_fees}/>
               )
-            })
+            }) : 
+            <img src="/loading.gif"></img>
           }
         </div>
       </main>
