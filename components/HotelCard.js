@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './HotelCard.module.css'
-import utilStyles from '../../styles/utilStyles.module.css'
+import utilStyles from '../styles/utilStyles.module.css'
 import formatCurrency from '../utils/formatCurrency'
 import ReactTooltip from 'react-tooltip';
 import Stars from'./Stars'

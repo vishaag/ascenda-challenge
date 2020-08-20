@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import HotelCard from './components/HotelCard'
-import mergeHotelsAndPrices from './utils/mergeHotelsAndPrices'
+import HotelCard from '../components/HotelCard'
+import mergeHotelsAndPrices from '../utils/mergeHotelsAndPrices'
 
 export default function Home() {
   const [hotels, setHotels] = useState([]);

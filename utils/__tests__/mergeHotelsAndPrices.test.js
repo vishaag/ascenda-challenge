@@ -1,4 +1,6 @@
 import mergeHotelsAndPrices from '../mergeHotelsAndPrices'
+import '@testing-library/jest-dom'
+import {expect} from 'jest'
 
 describe("Merging Hotels and Prices", () => {
   it("Should push hotels without prices to bottom of the list", () => {
