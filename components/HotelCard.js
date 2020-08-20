@@ -1,5 +1,6 @@
+import React from 'react'
 import styles from './HotelCard.module.css'
-import utilStyles from '../../styles/utilStyles.module.css'
+import utilStyles from '../styles/utilStyles.module.css'
 import formatCurrency from '../utils/formatCurrency'
 import ReactTooltip from 'react-tooltip';
 import Stars from'./Stars'
@@ -35,7 +36,6 @@ export default function HotelCard({photo, title, stars, rating, price, currency,
   if(airbrbIndex < listArray.length - 1) {
     priceOfHighestCompetitor = listArray[listArray.length - 1][1]
     savings = Math.round(((priceOfHighestCompetitor - price)/priceOfHighestCompetitor) * 100)
-    console.log(price, priceOfHighestCompetitor, savings)
   }
   
   return (
