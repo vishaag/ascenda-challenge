@@ -2,9 +2,6 @@ import React from 'react';
 import {render, screen} from "@testing-library/react"
 import '@testing-library/jest-dom'
 import HotelCard from "../HotelCard";
-import {expect} from 'jest'
-
-
 
 describe("Competitor Pricing", () => {
   it("Should not show any savings when no competitor rates exist", () => {
