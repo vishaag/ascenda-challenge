@@ -1,0 +1,28 @@
+.button {
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  padding: 0.5rem 0;
+  background: black;
+  border: 1px solid black;
+  color: white;
+  border-radius: 6px;
+}
+
+.button:hover {
+  text-decoration: none;
+  cursor: pointer;
+  background: white;
+  color: black;
+  transition: background 200ms ease, color 200ms ease;
+}
+
+.featherColor {
+  background-color: white;
+  background-image: -webkit-linear-gradient(0deg,#00c4cc,#7d2ae8);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0); 
+  -moz-background-clip: text;
+  -moz-text-fill-color: rgba(255, 255, 255, 0);
+  display: inline-block;
+}

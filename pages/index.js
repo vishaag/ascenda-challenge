@@ -60,19 +60,21 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Airbrb
-        </h1>
-
-        <h3 className={styles.description}>Currency</h3>
+      <nav>
+        <header>
+          <h1 className={styles.title}>
+            Airbrb
+          </h1>
+        </header>
         <ul className={styles.list}>
           <li><a onClick={() => changeCurrency('USD')} className={`${currency === 'USD' ? styles.bold : ""}`}>USD</a></li>
           <li><a onClick={() => changeCurrency('SGD')} className={`${currency === 'SGD' ? styles.bold : ""}`}>SGD</a></li>
           <li><a onClick={() => changeCurrency('CNY')} className={`${currency === 'CNY' ? styles.bold : ""}`}>CNY</a></li>
           <li><a onClick={() => changeCurrency('KRW')} className={`${currency === 'KRW' ? styles.bold : ""}`}>KRW</a></li>
         </ul>
+      </nav>
 
+      <main className={styles.main}>
         <div className={styles.grid}>
           {
             hotels.map((hotel,index) => {
