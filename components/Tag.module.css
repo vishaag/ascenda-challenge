@@ -1,11 +1,12 @@
 .tag {
   font-weight: bold;
   border-radius: 5px;
-  background: #29BC9B;
   text-align: center;
   color: white;
   padding: 0.3rem;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   width: fit-content;
-  font-weight: 400;
+  font-weight: 00;
+  background-image: -webkit-linear-gradient(0deg,#00c4cc,#7d2ae8);
+  margin-bottom: 0.5rem;
 }

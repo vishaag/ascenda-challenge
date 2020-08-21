@@ -2,17 +2,17 @@
   font-weight: bold;
   font-family: 'Montserrat', sans-serif;
   padding: 0.5rem 0;
-  background: black;
-  border: 1px solid black;
+  background: #ff690f;
+  border: 1px solid #ff690f;
   color: white;
   border-radius: 6px;
 }
 
+.button:focus,
 .button:hover {
   text-decoration: none;
   cursor: pointer;
-  background: white;
-  color: black;
+  background: #ee4719;
   transition: background 200ms ease, color 200ms ease;
 }
 

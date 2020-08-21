@@ -7,6 +7,7 @@ import mergeHotelsAndPrices from '../utils/mergeHotelsAndPrices'
 export default function Home() {
   const [hotels, setHotels] = useState([]);
   const [currency, setCurrency] = useState();
+  const [displayCurrency, setdisplayCurrency] = useState();
 
   useEffect(() => {
     const defaultCurrency = 'USD'
@@ -45,6 +46,7 @@ export default function Home() {
       // }
       // ]
       // setHotels(hotel)
+      setdisplayCurrency(currency)
       console.log(mergedResult)
     })
   },[currency])
@@ -66,14 +68,19 @@ export default function Home() {
       <nav>
         <header>
           <h1 className={styles.title}>
-            Airbrb
+            <span>A</span>
+            <span>I</span>
+            <span>R</span>
+            <span>B</span>
+            <span>R</span>
+            <span>B</span>
           </h1>
         </header>
         <ul className={styles.list}>
-          <li><a onClick={() => changeCurrency('USD')} className={`${currency === 'USD' ? styles.bold : ""}`}>USD</a></li>
-          <li><a onClick={() => changeCurrency('SGD')} className={`${currency === 'SGD' ? styles.bold : ""}`}>SGD</a></li>
-          <li><a onClick={() => changeCurrency('CNY')} className={`${currency === 'CNY' ? styles.bold : ""}`}>CNY</a></li>
-          <li><a onClick={() => changeCurrency('KRW')} className={`${currency === 'KRW' ? styles.bold : ""}`}>KRW</a></li>
+          <li><a onClick={() => changeCurrency('USD')} className={`${currency === 'USD' ? styles.activeText : ""}`}>USD</a></li>
+          <li><a onClick={() => changeCurrency('SGD')} className={`${currency === 'SGD' ? styles.activeText : ""}`}>SGD</a></li>
+          <li><a onClick={() => changeCurrency('CNY')} className={`${currency === 'CNY' ? styles.activeText : ""}`}>CNY</a></li>
+          <li><a onClick={() => changeCurrency('KRW')} className={`${currency === 'KRW' ? styles.activeText : ""}`}>KRW</a></li>
         </ul>
       </nav>
 
@@ -83,7 +90,7 @@ export default function Home() {
             hotels.length ? 
             hotels.map((hotel,index) => {
               return (
-                <HotelCard key={index} photo={hotel.photo} title={hotel.name} rating={hotel.rating} stars={hotel.stars} price={hotel.price} currency={currency} list={hotel.competitors} toolTipData={hotel.taxes_and_fees}/>
+                <HotelCard key={index} photo={hotel.photo} title={hotel.name} rating={hotel.rating} stars={hotel.stars} price={hotel.price} currency={displayCurrency} list={hotel.competitors} toolTipData={hotel.taxes_and_fees}/>
               )
             }) : 
             <img src="/loading.gif"></img>

@@ -6,31 +6,13 @@ import ReactTooltip from 'react-tooltip';
 import Stars from'./Stars'
 import Rating from './Rating'
 import Tag from './Tag.js'
+import orderCompetitorsList from '../utils/orderCompetitorsList';
 
 export default function HotelCard({photo, title, stars, rating, price, currency, list, toolTipData}) {
   let savings;
   let priceOfHighestCompetitor;
-  /* 
-    list looks like this : 
-    {Prestigia: 122.49, Kayak: 139.5}
-  */
 
-  const listArray = list ? Object.entries(list) : []   //Convert list object into an array
-  /* 
-    listArray looks like this : 
-    [
-      ["Prestigia", 122.49]
-      ["Kayak", 139.5]
-    ]
-  */
-
-  if(listArray.length > 1) {
-    listArray.push(['Airbrb', price]) //Add Airbrb to the competitor pricing list
-  }
-
-  listArray.sort((a,b) => {
-    return a[1] - b[1]
-  })
+  const listArray = orderCompetitorsList(list, price)
 
   const airbrbIndex = listArray.findIndex(item => item[0] === 'Airbrb');
   if(airbrbIndex < listArray.length - 1) {
@@ -47,18 +29,23 @@ export default function HotelCard({photo, title, stars, rating, price, currency,
           <Stars checked={stars} unchecked={5-stars}/>
         </div>
 
-        <div>
+        <div className={styles.bottomRow}>
           <Rating rating={rating}/>
-          <ul className={styles.list}>
-          {
-            listArray.map((item,index) => {
-              return <li key={index}>
-                <h6>{item[0]}</h6>
-                <h6>{formatCurrency(item[1], currency)}</h6>
-              </li>
-            })
+
+          { listArray.length > 0 &&
+            <ul className={styles.list}>
+              {listArray.map((item,index) => {
+                return <li key={index}>
+                  <h6>{item[0]}</h6>
+                  <h6>{formatCurrency(item[1], currency)}</h6>
+                </li>
+              })}
+
+            </ul>
           }
-          </ul>
+        
+        <div className={styles.fade}></div>
+
         </div>
       </div>
       <div className={styles.price}>
@@ -67,7 +54,7 @@ export default function HotelCard({photo, title, stars, rating, price, currency,
           <>
             {savings ? <Tag>Save {savings}%</Tag> : ''}
             {toolTipData ? <h3 data-tip data-for={title}>{formatCurrency(price, currency)}*</h3> : <h3>{formatCurrency(price, currency)}</h3> }
-            {savings ?  <h3 style={{textDecoration: 'line-through', color: '#e54a4a'}}>{formatCurrency(priceOfHighestCompetitor, currency)}</h3> : ''}
+            {savings ?  <h3 style={{textDecoration: 'line-through', color: '#888'}}>{formatCurrency(priceOfHighestCompetitor, currency)}</h3> : ''}
 
             {toolTipData ? <ReactTooltip id={title}>
               <h1>Breakdown</h1>
