@@ -12,6 +12,12 @@ This projects is a frontend applications that displays a list of hotels, it's pr
 
 ## Getting Started
 
+First, install all the npm packages using —
+
+```bash
+npm install
+```
+
 To start the development server, run the following command —
 
 ```bash
