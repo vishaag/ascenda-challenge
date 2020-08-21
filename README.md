@@ -4,7 +4,7 @@
 ![Airbrb](https://dev-to-uploads.s3.amazonaws.com/i/cpx1mvmiztpptfspcjum.png)
 
 
-This projects is a frontend applications that displays a list of hotels, it's prices (in 4 different currencies) and it's competitors prices.
+This projects is a frontend application that displays a list of hotels, it's prices (in 4 different currencies) and it's competitors prices.
 
 <h1 align="center"> <a href="https://ascenda-challenge.vercel.app/">Checkout the Website →	</a> </h1>
 
