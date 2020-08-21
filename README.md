@@ -1,8 +1,10 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Hotel Currencies & Price Competitiveness task
+
+This projects is a frontend applications that displays a list of hotels, it's prices (in 4 different currencies) and it's competitors prices.
 
 ## Getting Started
 
-First, run the development server:
+To start the development server, run the following command —
 
 ```bash
 npm run dev
@@ -10,21 +12,39 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the applications running.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+To run the tests, run the following —
+```bash
+npm run test
+```
 
-## Learn More
+## Design Considerations
+#### Tech stack / Packages
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js](https://nextjs.org/docs) (React.js) for the frontend
+- [Jest](https://jestjs.io/) & [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) for the unit and integrations tests
+- [react-tooltip](https://www.npmjs.com/package/react-tooltip) for hover over tooltips
+- [Vercel](https://vercel.com/) for hosting
+- Vanilla CSS, but uses [CSS Modules](https://github.com/css-modules/css-modules) for file based scoping
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Changelog
+#### 1.0
+- Fetches hotels and pricing and displays it
+- Currency conversion feature
+- Competitor price listing feature
+- Setup Jest & React Testing Library
+- Unit / Integration tests for HotelCard component & utility functions
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Future version enhancements
+ - [ ] When changing currencies, make only the prices API call instead of both hotels & prices
+ - [ ] Add animating skeletons for the initial load
+ - [ ] Fetch other currency prices asynchronously when the page has finished loading for one currency and store in state
+ - [ ] Setup and configure Cypress for E2E tests
+ - [ ] Automatically fetch prices for hotels after 'x' amount of time has passed or the user returns to this tab from another tab
+ 
+##### Possible API changes for better performance 
+- [ ] Allow price API calls for individual hotels instead of loading all at once 
+- [ ] Cache frequently searched hotels to reduce initial load time
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
