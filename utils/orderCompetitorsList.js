@@ -11,7 +11,7 @@ export default function orderCompetitorsList(list, price) {
       ["Kayak", 139.5]
     ]
   */
-  if(listArray.length > 1) {
+  if(listArray.length >= 1) {
     listArray.push(['Airbrb', price]) //Add Airbrb to the competitor pricing list
   }
 

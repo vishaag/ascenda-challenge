@@ -66,14 +66,13 @@ describe("Competitor Pricing", () => {
     }
     render(<HotelCard  photo={hotel.photo} title={hotel.name} rating={hotel.rating} stars={hotel.stars} price={hotel.price} currency={currency} list={hotel.competitors}/>)
 
-    const saveNode = screen.queryByText(/save 11%/i)
+    const saveNode = screen.queryByText(/^save 11%$/i) //full string match, ignore case
     expect(saveNode).toBeInTheDocument()
   })
 })
 
-
-describe("Pricing", () => {
-  it("Should display Rates Unavailable when hotel doesn't have a price", () => {
+describe("Our Pricing", () => {
+  it("Should display as Rates Unavailable when hotel doesn't have a price", () => {
     const currency = 'SGD'
     const hotel = {
       "id":1,
@@ -83,7 +82,7 @@ describe("Pricing", () => {
       "photo":"https://d2ey9sqrvkqdfs.cloudfront.net/ZqSQ/i1_t.jpg",
     }
     render(<HotelCard  photo={hotel.photo} title={hotel.name} rating={hotel.rating} stars={hotel.stars} currency={currency}/>)
-    const priceNode = screen.queryByText(/Rates Unavailable/i)
+    const priceNode = screen.queryByText('Rates Unavailable')
     expect(priceNode).toBeInTheDocument()
   })
 

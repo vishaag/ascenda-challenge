@@ -40,7 +40,6 @@ export default function HotelCard({photo, title, stars, rating, price, currency,
                   <h6>{formatCurrency(item[1], currency)}</h6>
                 </li>
               })}
-
             </ul>
           }
         
