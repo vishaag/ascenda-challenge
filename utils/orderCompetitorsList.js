@@ -1,3 +1,15 @@
+/* Adds Airbrb and sorts (ascending order of prices) the competitors list 
+Eg Usage:
+  list = {Prestigia: 122.49, Kayak: 139.5}
+  price = 125
+  orderCompetitorsList(list, price) will return :
+  [
+    ["Prestigia", 122.49]
+    ["Airbrb", 125]
+    ["Kayak", 139.5]
+  ]
+*/
+
 export default function orderCompetitorsList(list, price) {
   /* 
     list object should look like this : 

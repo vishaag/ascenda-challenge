@@ -14,6 +14,7 @@ export default function Home() {
     const locallySetCurrency = localStorage.getItem('selectedCurrency')
     let selectedCurrency;
 
+    // if currency exists in localstorage, set that in the currency state, else set defaultCurrency ('USD')
     if(locallySetCurrency) {
       selectedCurrency = locallySetCurrency
       setCurrency(locallySetCurrency);
@@ -22,10 +23,12 @@ export default function Home() {
       setCurrency(defaultCurrency);
       localStorage.setItem('selectedCurrency', defaultCurrency);
     }
-    
+
+    // URLs - Make changes here to test different APIs
     const hotelsURL = 'https://5df9cc6ce9f79e0014b6b3dc.mockapi.io/hotels/tokyo';
     const pricesURL = `https://5df9cc6ce9f79e0014b6b3dc.mockapi.io/hotels/tokyo/1/${selectedCurrency}`;
 
+    // Wait for both fetch to complete
     Promise.all([
       fetch(hotelsURL),
       fetch(pricesURL)
@@ -34,18 +37,6 @@ export default function Home() {
     .then(([hotels, prices]) => {
       const mergedResult = mergeHotelsAndPrices(hotels, prices)
       setHotels(mergedResult)
-      // const hotel = [{
-      //   "id":1,
-      //   "name":"Shinagawa Prince Hotel",
-      //   "rating":7.7,
-      //   "stars":4,
-      //   "address":"108-8611 Tokyo Prefecture, Minato-ku, Takanawa 4-10-30, Japan",
-      //   "photo":"https://d2ey9sqrvkqdfs.cloudfront.net/ZqSQ/i1_t.jpg",
-      //   "competitors":{"Booking.com":125,"Hotels.com":121,"Expedia":120,"getaroom":140,"AMOMA.com":132.77},
-      //   "price": 125
-      // }
-      // ]
-      // setHotels(hotel)
       setdisplayCurrency(currency)
       console.log(mergedResult)
     })

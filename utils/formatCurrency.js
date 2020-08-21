@@ -1,3 +1,7 @@
+/* Language sensitive currency formatting
+  Eg Usage: formatCurrency(999, 'USD') returns '$999'
+*/
+
 export default function formatCurrency(value, currency) {
   let formattedValue;
   switch(currency) {
